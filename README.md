@@ -1,0 +1,37 @@
+# Survival Project AMP template
+
+This GenericModule template starts the reviewed Java server from
+`D:\SurvivalProject\Server` through `survivalproject-launcher.py`.
+
+`assets/survivalproject-banner-logo.png` is the active horizontal instance
+banner crop. It tightly frames and centers the Survival Project logo from the
+supplied source artwork. The wider original crop remains in the template as a
+non-active alternative.
+
+The live card reads this asset from the public template repository at
+`https://raw.githubusercontent.com/FrostLagoa/AMPTemplates-SurvivalProject/main/assets/survivalproject-banner-logo.png`.
+No client, server binary, database data, Vault file, credential, or local
+runtime artifact belongs in this repository.
+
+The launcher accepts only a machine-DPAPI scoped Vault containing the two
+shared Iris SQL keys. It passes the values to the Java child as process
+environment variables and never writes them to AMP settings, command lines,
+Git, or logs.
+
+The local-only contract is intentional:
+
+- `SP_BIND_ADDRESS` is forced to `127.0.0.1`.
+- Java binds login TCP `21000`, then TCP/UDP channels `21001` through `21003`.
+- AMP recognizes startup only after the Java process emits the readiness line
+  following successful binding of all seven listeners.
+- The template does not create a firewall rule, public endpoint, client
+  patch, or game account.
+
+`python scripts\provision_survivalproject_runtime.py inspect` is read-only.
+`runtime-vault --confirm CONFIGURE_SURVIVALPROJECT_RUNTIME_VAULT` creates the
+DPAPI projection and applies the least required read/execute ACL for `NETWORK
+SERVICE`. `install-template --confirm INSTALL_SURVIVALPROJECT_TEMPLATE` copies
+the tracked contract to `D:\SurvivalProject\Server\amp-template`. It deliberately
+does not inject an unregistered folder into ADS's deployment-template scanner:
+ADS supports custom specs through a registered repository, and an arbitrary
+local folder can corrupt the GenericModule cache.

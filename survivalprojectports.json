@@ -1,0 +1,6 @@
+[
+  {"Protocol":"TCP","Port":21000,"Ref":"ApplicationPort1","Name":"Loopback login service","Description":"Bound only to 127.0.0.1"},
+  {"Protocol":"TCP","Port":21001,"Ref":"ApplicationPort2","Name":"Loopback Beginner channel","Description":"TCP and UDP are bound only to 127.0.0.1"},
+  {"Protocol":"TCP","Port":21002,"Ref":"ApplicationPort3","Name":"Loopback Hero channel","Description":"TCP and UDP are bound only to 127.0.0.1"},
+  {"Protocol":"TCP","Port":21003,"Ref":"ApplicationPort4","Name":"Loopback Epic channel","Description":"TCP and UDP are bound only to 127.0.0.1"}
+]
