@@ -1,6 +1,10 @@
 [
-  {"Protocol":"TCP","Port":21000,"Ref":"ApplicationPort1","Name":"Loopback login service","Description":"Bound only to 127.0.0.1"},
-  {"Protocol":"TCP","Port":21001,"Ref":"ApplicationPort2","Name":"Loopback Beginner channel","Description":"TCP and UDP are bound only to 127.0.0.1"},
-  {"Protocol":"TCP","Port":21002,"Ref":"ApplicationPort3","Name":"Loopback Hero channel","Description":"TCP and UDP are bound only to 127.0.0.1"},
-  {"Protocol":"TCP","Port":21003,"Ref":"ApplicationPort4","Name":"Loopback Epic channel","Description":"TCP and UDP are bound only to 127.0.0.1"}
+  {"Protocol":"TCP","Port":21000,"Ref":"ApplicationPort1","Name":"Login service","Description":"TCP login listener"},
+  {"Protocol":"TCP","Port":21001,"Ref":"ApplicationPort2","Name":"Beginner channel","Description":"TCP channel listener"},
+  {"Protocol":"TCP","Port":21002,"Ref":"ApplicationPort3","Name":"Hero channel","Description":"TCP channel listener"},
+  {"Protocol":"TCP","Port":21003,"Ref":"ApplicationPort4","Name":"Epic channel","Description":"TCP channel listener"},
+  {"Protocol":"UDP","Port":21001,"Ref":"ApplicationPort5","Name":"Beginner channel UDP","Description":"UDP gameplay listener"},
+  {"Protocol":"UDP","Port":21002,"Ref":"ApplicationPort6","Name":"Hero channel UDP","Description":"UDP gameplay listener"},
+  {"Protocol":"UDP","Port":21003,"Ref":"ApplicationPort7","Name":"Epic channel UDP","Description":"UDP gameplay listener"}
 ]
+
