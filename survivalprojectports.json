@@ -7,4 +7,3 @@
   {"Protocol":"UDP","Port":21002,"Ref":"ApplicationPort6","Name":"Hero channel UDP","Description":"UDP gameplay listener"},
   {"Protocol":"UDP","Port":21003,"Ref":"ApplicationPort7","Name":"Epic channel UDP","Description":"UDP gameplay listener"}
 ]
-
