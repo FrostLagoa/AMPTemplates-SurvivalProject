@@ -18,14 +18,18 @@ shared Iris SQL keys. It passes the values to the Java child as process
 environment variables and never writes them to AMP settings, command lines,
 Git, or logs.
 
-The local-only contract is intentional:
+The network contract is intentional:
 
-- `SP_BIND_ADDRESS` is forced to `127.0.0.1`.
+- `SP_BIND_ADDRESS` accepts only `127.0.0.1` (local-only) or `0.0.0.0`
+  (all IPv4 interfaces). The database host remains restricted to loopback.
 - Java binds login TCP `21000`, then TCP/UDP channels `21001` through `21003`.
 - AMP recognizes startup only after the Java process emits the readiness line
   following successful binding of all seven listeners.
-- The template does not create a firewall rule, public endpoint, client
-  patch, or game account.
+- Selecting `0.0.0.0` requires matching inbound Windows Firewall rules and,
+  for Internet access, router NAT forwarding for those same ports. DNS alone
+  does not publish a service.
+- The template does not create a firewall rule, router NAT rule, client patch,
+  or game account.
 
 `python scripts\provision_survivalproject_runtime.py inspect` is read-only.
 `runtime-vault --confirm CONFIGURE_SURVIVALPROJECT_RUNTIME_VAULT` creates the
@@ -35,3 +39,4 @@ the tracked contract to `D:\SurvivalProject\Server\amp-template`. It deliberatel
 does not inject an unregistered folder into ADS's deployment-template scanner:
 ADS supports custom specs through a registered repository, and an arbitrary
 local folder can corrupt the GenericModule cache.
+
