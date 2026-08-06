@@ -39,4 +39,3 @@ the tracked contract to `D:\SurvivalProject\Server\amp-template`. It deliberatel
 does not inject an unregistered folder into ADS's deployment-template scanner:
 ADS supports custom specs through a registered repository, and an arbitrary
 local folder can corrupt the GenericModule cache.
-
