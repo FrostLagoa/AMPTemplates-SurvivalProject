@@ -88,8 +88,8 @@
     "DisplayName": "Bind address",
     "Category": "Survival Project:gamepad",
     "Subcategory": "Network:settings:3",
-    "Description": "Must remain 127.0.0.1 for the controlled local-only phase.",
-    "Keywords": "network,loopback,bind,address",
+    "Description": "Use 127.0.0.1 for local-only operation or 0.0.0.0 to accept IPv4 connections on all host interfaces. Public access also requires the matching Windows Firewall and router NAT rules.",
+    "Keywords": "network,loopback,lan,public,bind,address",
     "FieldName": "BindAddress",
     "InputType": "text",
     "ParamFieldName": "BindAddress",
@@ -99,3 +99,4 @@
     "IncludeInCommandLine": true
   }
 ]
+
