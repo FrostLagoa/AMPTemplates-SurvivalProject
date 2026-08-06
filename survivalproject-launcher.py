@@ -87,8 +87,10 @@ def build_environment(
 ) -> dict[str, str]:
     if database_host != "127.0.0.1":
         raise SurvivalProjectLaunchError("The controlled AMP template permits only the 127.0.0.1 database host")
-    if bind_address != "127.0.0.1":
-        raise SurvivalProjectLaunchError("The controlled AMP template permits only the 127.0.0.1 bind address")
+    if bind_address not in {"127.0.0.1", "0.0.0.0"}:
+        raise SurvivalProjectLaunchError(
+            "The controlled AMP template permits only 127.0.0.1 or 0.0.0.0 as the bind address"
+        )
     environment = dict(os.environ)
     environment.update(
         {
@@ -154,3 +156,4 @@ if __name__ == "__main__":
     except SurvivalProjectLaunchError as exc:
         print(f"Survival Project launch failed: {exc}", file=sys.stderr)
         raise SystemExit(2) from exc
+
