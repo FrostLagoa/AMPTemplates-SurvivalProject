@@ -156,4 +156,3 @@ if __name__ == "__main__":
     except SurvivalProjectLaunchError as exc:
         print(f"Survival Project launch failed: {exc}", file=sys.stderr)
         raise SystemExit(2) from exc
-
